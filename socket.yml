@@ -7,29 +7,31 @@ keywords:
   - world
 classes:
   user:
-    - name: address
+    - name: name
       type: string
     - name: phone
       type: integer
-    - name: cryptoBankAcct
+    - name: address
+      type: string
+    - name: type
+      type: string
+      filter_index: true
+    - name: btcAccount
       type: string
   collection:
-    - name: firstname
-      type: string
-    - name: surname
-      type: string
-    - name: national_id
-      type: string
-    - name: gender
-      type: string
-    - name: phone
-      type: string
-    - name: province
+    - name: personalInfo
       type: string
     - name: amenities
       type: string
-    - name: verfication_status
+    - name: longitude
       type: string
+    - name: latitude
+      type: string
+    - name: geocode
+      type: text
+    - name: user
+      type: string
+      filter_index: true
 endpoints:
   registration:
     description: Hello world!
@@ -54,11 +56,7 @@ endpoints:
         type: number
         description: "Last name of the person you want to greet"
         example: "Durden"
-      cryptoBankAcct:
-        type: string
-        description: "Last name of the person you want to greet"
-        example: "Durden"
-      testResponse:
+      btcAccount:
         type: string
         description: "Last name of the person you want to greet"
         example: "Durden"
@@ -108,6 +106,71 @@ endpoints:
         description: "Last name of the person you want to greet"
         example: "Durden"
       cryptoBankAcct:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+    response:
+      mimetype: application/json
+      examples:
+        -
+          exit_code: 200
+          description: Success
+          example: |
+            {
+            "message": "Hello Tyler Durden!"
+            }
+        -
+          exit_code: 400
+          description: Failed
+          example: |
+            {
+              "message": "You have to send "firstname" and "lastname" arguments!"
+            }
+
+  collection:
+    description: Create collection for address
+    parameters:
+      personalInfo:
+        type: string
+        description: " Path to personal photo to upload."
+        example: "Tyler"
+      amenities:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      cords:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      _user_key:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      user:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+    response:
+      mimetype: application/json
+      examples:
+        -
+          exit_code: 200
+          description: Success
+          example: |
+            {
+            "message": "Hello Tyler Durden!"
+            }
+        -
+          exit_code: 400
+          description: Failed
+          example: |
+            {
+              "message": "You have to send "firstname" and "lastname" arguments!"
+            }
+  collection-list:
+    description: Create collection for address
+    parameters:
+      _user_key:
         type: string
         description: "Last name of the person you want to greet"
         example: "Durden"
