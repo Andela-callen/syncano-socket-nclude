@@ -2,6 +2,7 @@ import Server from 'syncano-server';
 
 export default async (ctx) => {
   const { data, response } = new Server(ctx);
+  const { collection_id } = ctx.args;
 
   const {user} = ctx.meta;
   if (!user) {
@@ -9,8 +10,10 @@ export default async (ctx) => {
   }
 
   try {
-    const result = await data.collection.list();
-    return response.json(result);
+    const result = data.collection.update(collection_id, { verified: 'true'});
+    if (result) {
+      return response.json({ message: 'Approved'});
+    }
   } catch (err) {
     return response.json({ message: err.message }, 400);
   }

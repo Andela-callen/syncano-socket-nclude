@@ -8,14 +8,15 @@ export default async (ctx) => {
 
   const {user} = ctx.meta;
   if (!user) {
-    return response.json({ message: 'Please login' }, 400);
+    return response.json({ message: 'Please login' }, 401);
   }
   const validator = new Validator(ctx.args, collectionRules);
 
   if (validator.passes()) {
     try {
       const result = await data.collection.create({
-        personalInfo, amenities, longitude, latitude, geocode, user: user.username
+        personalInfo, amenities, longitude, latitude, geocode,
+        user: user.username, verified: 'false'
       });
       console.log(result, 'result');
       return response.json({ message: 'Saved successfully'});

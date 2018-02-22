@@ -32,6 +32,9 @@ classes:
     - name: user
       type: string
       filter_index: true
+    - name: verified
+      type: string
+      filter_index: true
 endpoints:
   registration:
     description: Hello world!
@@ -171,6 +174,34 @@ endpoints:
     description: Create collection for address
     parameters:
       _user_key:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+    response:
+      mimetype: application/json
+      examples:
+        -
+          exit_code: 200
+          description: Success
+          example: |
+            {
+            "message": "Hello Tyler Durden!"
+            }
+        -
+          exit_code: 400
+          description: Failed
+          example: |
+            {
+              "message": "You have to send "firstname" and "lastname" arguments!"
+            }
+  approve-collection:
+    description: Create collection for address
+    parameters:
+      _user_key:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      collection_id:
         type: string
         description: "Last name of the person you want to greet"
         example: "Durden"
