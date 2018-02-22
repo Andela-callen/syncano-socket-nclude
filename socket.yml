@@ -1,3 +1,130 @@
 name: nclude
-description: Description of nclude
+description: Description of nclude2
 version: 0.0.1
+runtime: nodejs_v8
+keywords:
+  - hello
+  - world
+classes:
+  user:
+    - name: address
+      type: string
+    - name: phone
+      type: integer
+    - name: cryptoBankAcct
+      type: string
+  collection:
+    - name: firstname
+      type: string
+    - name: surname
+      type: string
+    - name: national_id
+      type: string
+    - name: gender
+      type: string
+    - name: phone
+      type: string
+    - name: province
+      type: string
+    - name: amenities
+      type: string
+    - name: verfication_status
+      type: string
+endpoints:
+  registration:
+    description: Hello world!
+    parameters:
+      photo:
+        type: string
+        description: " Path to personal photo to upload."
+        example: "Tyler"
+      email:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      password:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      address:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      phone:
+        type: number
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      cryptoBankAcct:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      testResponse:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+    response:
+      mimetype: application/json
+      examples:
+        -
+          exit_code: 200
+          description: Success
+          example: |
+            {
+            "message": "Hello Tyler Durden!"
+            }
+        -
+          exit_code: 400
+          description: Failed
+          example: |
+            {
+              "message": "You have to send "firstname" and "lastname" arguments!"
+            }
+
+  login:
+    description: Hello world!
+    parameters:
+      photo:
+        type: string
+        description: " Path to personal photo to upload."
+        example: "Tyler"
+      homeAddress:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      emailAddress:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      phoneNumber:
+        type: number
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      generalInfo:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      testResponse:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+      cryptoBankAcct:
+        type: string
+        description: "Last name of the person you want to greet"
+        example: "Durden"
+    response:
+      mimetype: application/json
+      examples:
+        -
+          exit_code: 200
+          description: Success
+          example: |
+            {
+            "message": "Hello Tyler Durden!"
+            }
+        -
+          exit_code: 400
+          description: Failed
+          example: |
+            {
+              "message": "You have to send "firstname" and "lastname" arguments!"
+            }
